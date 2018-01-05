@@ -45,3 +45,7 @@ build
 
 # CLion
 .idea
+
+_logs
+_install
+_builds

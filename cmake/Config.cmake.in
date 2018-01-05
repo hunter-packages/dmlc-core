@@ -1,0 +1,28 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/@TARGETS_EXPORT_NAME@.cmake")
+check_required_components("@PROJECT_NAME@")
+
+if(@USE_HDF5@)
+  find_package(JNI REQUIRED)
+  find_package(HDFS REQUIRED)
+endif()
+
+if(@USE_S3@)
+  find_package(CURL CONFIG REQUIRED)
+  find_package(OpenSSL REQUIRED)
+endif()
+
+if(@USE_AZURE@)
+  # reserved
+endif()
+
+if(@USE_OPENMP@)
+  if(NOT @MSVC@)
+    find_package(OpenMP REQUIRED)
+  endif()
+endif()
+
+if(@MSVC@)
+  find_package(PythonInterp)
+endif()
