@@ -45,3 +45,7 @@ build
 
 # CLion
 .idea
+
+# Build, install etc
+_*
+
