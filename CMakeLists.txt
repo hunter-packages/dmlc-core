@@ -6,7 +6,7 @@ HunterGate(
   SHA1 "87eb902de6ca89e1dafc71e475344f523ef67729"
 )
 
-project(dmlc VERSION 1.0.0)
+project(dmlc VERSION 0.0.0)
 
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/build/private/local_config.cmake)
   include(${CMAKE_CURRENT_SOURCE_DIR}/build/private/local_config.cmake)
