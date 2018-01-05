@@ -22,7 +22,3 @@ if(@USE_OPENMP@)
     find_package(OpenMP REQUIRED)
   endif()
 endif()
-
-if(@MSVC@)
-  find_package(PythonInterp)
-endif()
