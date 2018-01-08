@@ -43,7 +43,7 @@
  */
 #if (defined(__GNUC__) && !defined(__MINGW32__)\
      && !defined(__sun) && !defined(__SVR4)\
-     && !(defined __MINGW64__) && !(defined __ANDROID__))
+     && !(defined __MINGW64__) && !((defined __ANDROID__) || (defined ANDROID)))
 #if (!defined(DMLC_LOG_STACK_TRACE))
 #define DMLC_LOG_STACK_TRACE 1
 #endif
