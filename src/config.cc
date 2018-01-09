@@ -39,7 +39,7 @@ class Tokenizer {
     tok->buf.clear();
     tok->is_string = false;
     char ch;
-    while ( (ch = PeekChar()) != EOF && state_ != kFinish ) {
+    while ( (ch = PeekChar()) != static_cast<char>(EOF) && state_ != kFinish ) {
       switch (ch) {
       case ' ': case '\t': case '\n': case '\r':
         if (state_ == kToken) {
@@ -70,7 +70,7 @@ class Tokenizer {
         break;
       }
     }
-    return PeekChar() != EOF;
+    return PeekChar() != static_cast<char>(EOF);
   }
 
   void ParseString(string* tok) {
@@ -87,7 +87,7 @@ class Tokenizer {
             throw TokenizeError("error parsing escape characters");
           }
           break;
-        case '\n': case '\r': case EOF:
+        case '\n': case '\r': case static_cast<char>(EOF):
           throw TokenizeError("quotation mark is not closed");
         default:
           *tok += ch;
@@ -101,7 +101,7 @@ class Tokenizer {
   void ParseComments() {
     char ch;
     while ( (ch = PeekChar()) ) {
-      if (ch == '\n' || ch == '\r' || ch == EOF) {
+      if (ch == '\n' || ch == '\r' || ch == static_cast<char>(EOF)) {
         break;  // end of comment
       }
       EatChar();  // ignore all others
