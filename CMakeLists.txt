@@ -26,6 +26,8 @@ dmlccore_option(USE_S3 "Build with S3 support" OFF)
 dmlccore_option(USE_OPENMP "Build with OpenMP" ON)
 dmlccore_option(USE_CXX14_IF_AVAILABLE "Build with C++14 if the compiler supports it" OFF)
 
+dmlccore_option(BUILD_UNIT_TESTS "Build examples" OFF)
+
 # include path
 set(INCLUDE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set(INCLUDE_DMLC_DIR "${INCLUDE_ROOT}/dmlc")
@@ -171,6 +173,8 @@ endif()
 set(LINT_DIRS include src scripts)
 add_custom_target(dmlc_lint COMMAND ${CMAKE_COMMAND} -DMSVC=${MSVC} -DPYTHON_EXECUTABLE=${PYTHON_EXECUTABLE}  -DPROJECT_SOURCE_DIR=${PROJECT_SOURCE_DIR} -DLINT_DIRS=${LINT_DIRS} -DPROJECT_NAME=dmlc -P ${PROJECT_SOURCE_DIR}/cmake/lint.cmake)
 
-# Setup testing
-include(CTest)
-add_subdirectory(test/unittest)
+if(BUILD_UNIT_TESTS)
+  # Setup testing
+  include(CTest)
+  add_subdirectory(test/unittest)
+endif()
