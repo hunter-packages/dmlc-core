@@ -36,10 +36,12 @@ include_directories("${INCLUDE_ROOT}")
 set(dmlccore_LINKER_LIBS "")
 # HDFS configurations
 if(USE_HDFS)
- find_package(HDFS REQUIRED)
  find_package(JNI REQUIRED)
- include_directories(${HDFS_INCLUDE_DIR})
- list(APPEND dmlccore_LINKER_LIBS ${HDFS_LIBRARIES} ${JAVA_JVM_LIBRARY})
+ list(APPEND dmlccore_LINKER_LIBS ${JAVA_JVM_LIBRARY})
+
+ hunter_add_package(hdf5 CONFIG REQUIRED) # use hdf5
+ find_package(hdf5 REQUIRED)
+ list(APPEND dmlccore_LINKER_LIBS hdf5)
  add_definitions(-DDMLC_USE_HDFS=1)
 else()
  add_definitions(-DDMLC_USE_HDFS=0)
