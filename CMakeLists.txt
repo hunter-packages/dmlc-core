@@ -70,7 +70,7 @@ endif()
 # Older stdc++ enable c++11 items
 add_definitions(-D__USE_XOPEN2K8)
 
-check_symbol_exists(fopen64 stdio.h FOPEN_64_PRESENT)
+check_cxx_symbol_exists(fopen64 stdio.h FOPEN_64_PRESENT)
 message(STATUS "${CMAKE_LOCAL}/build_config.h.in -> ${INCLUDE_DMLC_DIR}/build_config.h")
 configure_file("${CMAKE_LOCAL}/build_config.h.in" "${INCLUDE_DMLC_DIR}/build_config.h")
 
