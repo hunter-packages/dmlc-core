@@ -84,7 +84,7 @@ add_definitions(-D__USE_XOPEN2K8)
 include(CheckSymbolExists)
 include(CheckIncludeFile)
 include(CheckIncludeFileCXX)
-check_symbol_exists(fopen64 stdio.h DMLC_FOPEN_64_PRESENT)
+check_cxx_symbol_exists(fopen64 stdio.h DMLC_FOPEN_64_PRESENT)
 check_include_file_cxx(cxxabi.h DMLC_CXXABI_H_PRESENT)
 check_symbol_exists(nanosleep time.h DMLC_NANOSLEEP_PRESENT)
 
