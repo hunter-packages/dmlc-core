@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.2)
 
+include("cmake/HunterGate.cmake")
+HunterGate(
+    URL "https://github.com/ruslo/hunter/archive/v0.23.142.tar.gz"
+    SHA1 "1d841ca74150c92054896a7f6d88a123dd9e615d"
+)
+
 project(dmlc VERSION 0.3 LANGUAGES C CXX)
 
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/build/private/local_config.cmake)
