@@ -8,6 +8,8 @@ HunterGate(
 
 project(dmlc VERSION 0.3)
 
+option(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS "Export all symbols" ON)
+
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/build/private/local_config.cmake)
   include(${CMAKE_CURRENT_SOURCE_DIR}/build/private/local_config.cmake)
 endif()
