@@ -190,7 +190,7 @@ add_library(dmlc ${SOURCE})
 target_link_libraries(dmlc ${dmlccore_LINKER_LIBS})
 target_include_directories(dmlc PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>)
+  $<INSTALL_INTERFACE:include>)
 target_compile_definitions(dmlc PRIVATE -D_XOPEN_SOURCE=700
   -D_POSIX_SOURCE -D_POSIX_C_SOURCE=200809L -D_DARWIN_C_SOURCE)
 
